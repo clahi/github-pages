@@ -15,7 +15,9 @@ import store from "./store/index";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
+    {path: "/github-pages", redirect: '/'},
     { path: "/", component: HomePage },
+    
     { path: "/rentals", component: RentalList },
     {
       path: "/rentals/:id",
