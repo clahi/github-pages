@@ -38,7 +38,7 @@
                 sell traditionally, we can help you navigate a successful sale.
               </p>
               <button type="button" class="btn btn-outline-primary">
-                <router-link to="/register">Register your house</router-link>
+                <router-link to="/register" target="_blank">Register your house</router-link>
               </button>
             </div>
           </div>
