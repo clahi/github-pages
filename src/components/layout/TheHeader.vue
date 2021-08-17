@@ -1,7 +1,7 @@
 <template>
   <div class="head">
     <nav class="navbar navbar-default navbar-static-top navbar-custom navbar-expand-lg navbar-light fixed-top">
-      <router-link class="navbar-brand" to="/">Find a Rental</router-link>
+      <router-link class="navbar-brand" to="/rentals">Find a Rental</router-link>
       <button
         class="navbar-toggler hidden-sm-up"
         type="button"

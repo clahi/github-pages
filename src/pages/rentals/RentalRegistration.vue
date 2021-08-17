@@ -13,10 +13,11 @@
       <div class="form-group">
         <label for="image-url">Image Url</label>
         <input
-          type="text"
+          type="file"
           class="form-control"
           id="image-url"
-          v-model="imageUrl"
+          accept="image/*"
+          @change="onPickedFile"
         />
       </div>
       <div class="form-group">
@@ -46,19 +47,6 @@
           v-model="description"
         ></textarea>
       </div>
-      <!-- <div class="form-group">
-        <label for="email">Your Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          aria-describedby="emailHelp"
-          v-model="emailAddress"
-        />
-        <small id="emailHelp" class="form-text text-muted"
-          >We'll never share your email with anyone else.</small
-        >
-      </div> -->
       <button class="btn btn-primary">Submit</button>
     </form>
   </base-card>
@@ -77,6 +65,18 @@ export default {
         }
     },
     methods: {
+        onPickedFile(event) {
+          const files = event.target.files
+          let fileName  = files[0].name
+          if(fileName.lastIndexOf('.') <= 0) {
+            return alert('Please add a valid image')
+          }
+          const fileReader = new FileReader()
+          fileReader.addEventListener('load', () => {
+            this.imageUrl = fileReader.result
+          })
+          fileReader.readAsDataURL(files[0])
+        },
         rentalRegister() {
             const rental = {
                 ownerName: this.ownerName,

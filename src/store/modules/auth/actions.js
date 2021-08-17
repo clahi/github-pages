@@ -26,7 +26,7 @@ export default {
       body: JSON.stringify({
         email: payload.email,
         password: payload.password,
-        returnSecureToken: true
+        returnSecureToken: true,
       })
     });
 
@@ -36,6 +36,7 @@ export default {
       const error = new Error(responseData.message || 'Failed to authenticate');
       throw error;
     }
+
 
     const expiresIn = +responseData.expiresIn * 1000;
     // const expiresIn = 5000
