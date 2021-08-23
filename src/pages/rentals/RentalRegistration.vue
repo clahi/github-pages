@@ -10,7 +10,8 @@
           v-model="ownerName"
         />
       </div>
-      <div class="form-group">
+
+      <!-- <div class="form-group">
         <label for="image-url">Image Url</label>
         <input
           type="file"
@@ -19,6 +20,10 @@
           accept="image/*"
           @change="onPickedFile"
         />
+      </div> -->
+      <div class="form-">
+        <label for="image-url">Image Url</label>
+        <input type="text" class="form-control" id="image-url" v-model="imageUrl">
       </div>
       <div class="form-group">
         <label for="price">Price</label>
@@ -83,18 +88,21 @@ export default {
         }
     },
     methods: {
-        onPickedFile(event) {
-          const files = event.target.files
-          let fileName  = files[0].name
-          if(fileName.lastIndexOf('.') <= 0) {
-            return alert('Please add a valid image')
-          }
-          const fileReader = new FileReader()
-          fileReader.addEventListener('load', () => {
-            this.imageUrl = fileReader.result
-          })
-          fileReader.readAsDataURL(files[0])
-        },
+
+      //important
+
+        // onPickedFile(event) {
+        //   const files = event.target.files
+        //   let fileName  = files[0].name
+        //   if(fileName.lastIndexOf('.') <= 0) {
+        //     return alert('Please add a valid image')
+        //   }
+        //   const fileReader = new FileReader()
+        //   fileReader.addEventListener('load', () => {
+        //     this.imageUrl = fileReader.result
+        //   })
+        //   fileReader.readAsDataURL(files[0])
+        // },
         rentalRegister() {
             const rental = {
                 ownerName: this.ownerName,

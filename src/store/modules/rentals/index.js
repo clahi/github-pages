@@ -52,6 +52,7 @@ export default {
       //   ...rental,
       //   id: userId
       // });
+      console.log(userId)
       context.commit("addRental", rental)
     },
     async loadRentals(context) {
