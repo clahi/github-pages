@@ -29,7 +29,7 @@
           v-model="price"
         />
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="location">Location</label>
         <input
           type="text"
@@ -37,6 +37,24 @@
           id="location"
           v-model="location"
         />
+      </div> -->
+       <div class="form-group">
+        <label for="location">Location</label>
+        <select class="form-control" id="location" v-model="location">
+         
+          <option value="Bugoloobi">Bugoloobi</option>
+          <option value="Bukoto">Bukoto</option>
+          <option value="Busega">Busega</option>
+          <option value="Kabalagala">Kabalagala</option>
+          <option value="Kampala Hill">Kampala Hill</option>
+          <option value="Kasanga">Kasanga</option>
+          <option value="Katwe">Katwe</option>
+          <option value="Kibuli">Kibuli</option>
+          <option value="Makerere">Makerere</option>
+          <option value="Makerere Kikoni">Makerere Kikoni</option>
+          <option value="Makindye">Makindye</option>
+
+        </select>
       </div>
       <div class="form-group">
         <label for="description">Example textarea</label>

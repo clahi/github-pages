@@ -28,12 +28,21 @@ export default {
   },
   data() {
     return {
-      // activeFilters: {
-      //   kampala: true,
-      //   mbarara: true,
-      //   jinja: true,
-      // },
-      location: 'All'
+      location: "All",
+      price: 400000,
+      locations: [
+        "Bugoloobi",
+        "Bukoto",
+        "Busega",
+        "Kabalagala",
+        "Kampala Hill",
+        "Kasanga",
+        "Katwe",
+        "Kibuli",
+        "Makerere",
+        "Makerere Kikoni",
+        "Makindye",
+      ],
     };
   },
   computed: {
@@ -42,34 +51,35 @@ export default {
     // },
     filteredRentals() {
       const rentals = this.$store.getters["rentals/properties"];
-      return rentals.filter(rental => {
-        if(this.location === 'All') {
-          return true
+      return rentals.filter((rental) => {
+        if (this.location === "All" && rental.price <= this.price) {
+          return true;
         }
-        if(this.location === 'Kampala' && rental.location === 'Kampala') {
-          return true
+        for (let i = 0; i < this.locations.length; i++) {
+          if(this.location === this.locations[i] && rental.location === this.locations[i] && rental.price <= this.price) {
+            return true
+          }
         }
-        if(this.location === 'Mbarara' && rental.location === 'Mbarara') {
-          return true
-        }
-        if(this.location === 'Jinja' && rental.location === 'Jinja') {
-          return true
-        }
-        return false
-      })
+        return false;
+      });
     },
   },
   methods: {
     async loadRentals() {
       await this.$store.dispatch("rentals/loadRentals");
     },
-    search(location) {
-      this.location = location
-    }
+    search(value) {
+      console.log(value.price)
+      this.location = value.location;
+      this.price = value.price
+    },
   },
   created() {
     this.loadRentals();
   },
+  updated() {
+    this.loadRentals();
+  }
 };
 </script>
 

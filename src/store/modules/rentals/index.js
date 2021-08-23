@@ -65,7 +65,7 @@ export default {
       }
       const rentals = [];
       for (const key in responseData) {
-        console.log(responseData[key]);
+        // console.log(responseData[key]);
         const rental = {
           // id: responseData[key].id,
           id:key,
@@ -86,7 +86,7 @@ export default {
       return state.rentals;
     },
     rentalId(state) {
-      console.log(state.rentals)
+      // console.log(state.rentals)
       return state.rentals;
     },
   },
